@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../../asset/css/main.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
+      <div class="container">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-house"></i></a>
+        <div class="navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item text-center ps-5">
+              <a class="nav-link" href="#"><i class="fa-solid fa-user-tie"></i>
+                <p>Admin page</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight" onclick="renderCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-amount">0</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="choose">
+    <div class="container">
+      <select id="chooseType" onchange="filterProduct()">
+        <option value="">All</option>
+        <option value="Iphone">Iphone</option>
+        <option value="Samsung">Samsung</option>
+      </select>
+    </div>
+  </div>
+  <div id="sanPham">
+    <div class="product_card" id="card">
+      <div class="product_card_item">
+        <div class="header_card">
+          <img src="" alt="" />
+        </div>
+        <div class="body_card">
+          <h2></h2>
+          <p></p>
+        </div>
+        <div class="footer_card">
+          <p></p>
+          <p></p>
+        </div>
+        <div class="card_overlay">
+          <div class="header_overlay">
+            <h1></h1>
+          </div>
+          <div class="body_overlay">
+            <p><span>Screen:</span></p>
+            <p><span>Back Camera:</span></p>
+            <p><span>Front Camera:</span></p>
+          </div>
+          <div class="footer_overlay">
+            <button class="btn btn-success mt-5" onclick="addToCart()">
+              Add to Card
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal off canvas  -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"
+    style="z-index: 9999; width: 500px; ;">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Cart</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <table class="table table-bordered">
+        <thead>
+          <th>ID</th>
+          <th>Tên Sản Phẩm</th>
+          <th>Giá</th>
+          <th>Hình Ảnh</th>
+          <th>Số lượng</th>
+          <th>Giá sản phẩm</th>
+        </thead>
+        <tbody id="tblDanhSachSP"></tbody>
+      </table>
+      <p id="totalPrice" class="position-absolute bottom-0 end-0 m-4 fs-4 fw-bold"></p>
+      
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../model/Product.js"></script>
+  <script src="../services/productAPI.js"></script>
+  <script src="../controllers/main.js"></script>
+</body>
+
+</html>

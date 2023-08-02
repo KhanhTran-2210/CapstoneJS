@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+.cover {
+  background: #0f2027; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+}
+.cover .cover__icon {
+  padding-bottom: 10px;
+}
+.cover .cover__item {
+  margin: 210px;
+  text-align: center;
+}
+.cover a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.5s;
+  font-size: 2.25rem;
+}
+.cover a:hover {
+  color: #008000;
+}
+
+.product_card {
+  padding: 10px 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+.product_card .product_card_item {
+  border-radius: 20px;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  margin-top: 50px;
+}
+.product_card .product_card_item .header_card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.product_card .product_card_item .body_card p {
+  color: #808080;
+}
+.product_card .product_card_item .footer_card p:first-child {
+  margin: 0 70px;
+  border: 1px solid #808080;
+  background-color: #808080;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+.product_card .product_card_item .footer_card p:last-child {
+  text-align: left;
+  margin: 10px 20px;
+}
+.product_card .product_card_item .card_overlay {
+  background-color: rgba(14, 13, 13, 0.703);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  opacity: 0;
+}
+.product_card .product_card_item .card_overlay .header_overlay h1 {
+  color: #fff;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 80px;
+  margin-bottom: 70px;
+}
+.product_card .product_card_item .card_overlay .body_overlay {
+  text-align: left;
+  margin-left: 20px;
+  color: #fff;
+}
+.product_card .product_card_item .card_overlay .body_overlay span {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.product_card .product_card_item:hover .card_overlay {
+  opacity: 1;
+}
+
+body {
+  background: #ADA996; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+header .fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.choose {
+  margin-top: 100px;
+}/*# sourceMappingURL=main.css.map */

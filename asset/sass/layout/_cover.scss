@@ -1,0 +1,32 @@
+.cover {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  & &__icon {
+    padding-bottom: 10px;
+  }
+  & &__item {
+    margin: 210px;
+    text-align: center;
+  }
+  a{
+    text-decoration: none;
+    color: $color-white;
+    transition: all 0.5s;
+    font-size: $fs-6;
+  }
+  a:hover {
+    color: $color-green;
+  }
+}
