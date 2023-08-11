@@ -15,53 +15,33 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler d-lg-none"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        ></button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdownId"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Dropdown</a
-              >
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <a class="dropdown-item" href="#">Action 1</a>
-                <a class="dropdown-item" href="#">Action 2</a>
-              </div>
-            </li>
-          </ul>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
+        <div class="container">
+          <a class="navbar-brand" href="../../index.html"
+            ><i class="fa-solid fa-house"></i
+          ></a>
+          <div class="navbar-collapse">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item text-center ps-5">
+                <a class="nav-link" href="../../customer/view/customer.html"
+                  ><i class="fa-solid fa-cart-shopping"></i>
+                  <p>Customer Page</p>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
-
-      <header class="display-4 my-4">
-        Thực hành javascript - axios
-      </header>
+    </div>
+    <div class="container">
+      <header class="display-4 my-4 text-center font-weight-bold">ADMIN PAGE</header>
       <!-- Phan tab menu -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -73,13 +53,12 @@
             >Danh sách sản phẩm</a
           >
         </li>
-        
       </ul>
       <br />
       <!-- Tab panes -->
       <div class="tab-content">
         <!--Danh sách sản phẩm -->
-        <div role="tabpanel" class="tab-pane  in active" id="DanhSachSP">
+        <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
           <div class="row">
             <div class="col-md-8">
               <!-- BEGIN BUTTOM THÊM MỚI -->
@@ -96,7 +75,7 @@
             </div>
             <div class="col-md-4">
               <!-- BEGIN TÌM KIẾM -->
-              <div class="input-group mb-3">
+              <div class="input-group mb-3" id="search-group">
                 <input
                   type="text"
                   id="txtSearch"
@@ -104,7 +83,6 @@
                   placeholder="Nhập từ khóa"
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
-                  
                 />
                 <div class="input-group-append">
                   <span class="input-group-text" id="basic-addon2"
@@ -124,7 +102,7 @@
                 <th>Tên Sản Phẩm</th>
                 <th>Giá</th>
                 <th>Hình Ảnh</th>
-                <th>Mô Tả</th>                
+                <th>Mô Tả</th>
                 <th>Action</th>
               </thead>
               <tbody id="tblDanhSachSP"></tbody>
@@ -133,13 +111,13 @@
           </div>
           <br />
         </div>
-        <!-- Kết thúc danh sách sản phẩm -->       
+        <!-- Kết thúc danh sách sản phẩm -->
       </div>
 
       <!--KetThuc Tabmenu-->
 
       <!-- The Modal -->
-      <div class="modal fade" id="myModal">
+      <div class="modal fade" id="myModal" modal-scope="parent">
         <div class="modal-dialog">
           <div class="modal-content">
             <!-- Modal Header -->
@@ -158,6 +136,7 @@
                   class="form-control"
                   placeholder="Nhập vào tên sản phẩm"
                 />
+                <span id="errorTenSP" class="text-danger"></span>
               </div>
               <div class="form-group">
                 <label>Giá</label>
@@ -166,7 +145,8 @@
                   class="form-control"
                   placeholder="Nhập vào giá"
                 />
-              </div>             
+                <span id="errorGiaSP" class="text-danger"></span>
+              </div>
               <div class="form-group">
                 <label>Hình Ảnh</label>
                 <input
@@ -174,14 +154,53 @@
                   class="form-control"
                   placeholder="Nhập vào hình sản phẩm"
                 />
+                <span id="errorHinhSP" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                <label>Screen</label>
+                <input
+                  id="ScreenSP"
+                  class="form-control"
+                  placeholder="Nhập vào screen"
+                />
+                <span id="errorScreenSP" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                <label>Camera sau</label>
+                <input
+                  id="BackCameraSP"
+                  class="form-control"
+                  placeholder="Nhập vào camera sau"
+                />
+                <span id="errorBackCameraSP" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                <label>Camera trước</label>
+                <input
+                  id="FrontCameraSP"
+                  class="form-control"
+                  placeholder="Nhập vào camera trước"
+                />
+                <span id="errorFrontCameraSP" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                <label>Mô tả sản phẩm</label>
+                <input
+                  id="DescSP"
+                  class="form-control"
+                  placeholder="Nhập vào mô tả"
+                />
+                <span id="errorDescSP" class="text-danger"></span>
               </div>
               <div class="form-group">
                 <label for="">Loại sản phẩm: </label>
                 <select class="form-control" id="loaiSP">
-                  <option value="phone">Phone</option>
-                  <option value="laptop">Laptop</option>
-                  <option value="other">Other</option>
+                  <option value="" selected disabled hidden>Choose here</option>
+                  <option value="Iphone">IPhone</option>
+                  <option value="Samsung">Samsung</option>
+                  <option value="Other">Other</option>
                 </select>
+                <span id="errorloaiSP" class="text-danger"></span>
               </div>
             </div>
             <!-- Modal footer -->

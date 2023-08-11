@@ -80,11 +80,11 @@ html {
   font-size: 44px;
   font-weight: 600;
   line-height: 80px;
-  margin-bottom: 70px;
+  margin: 30px 0 50px 0;
 }
 .product_card .product_card_item .card_overlay .body_overlay {
   text-align: left;
-  margin-left: 20px;
+  margin-left: 30px;
   color: #fff;
 }
 .product_card .product_card_item .card_overlay .body_overlay span {
@@ -95,11 +95,12 @@ html {
 }
 .product_card .product_card_item:hover .card_overlay {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 body {
-  background: #ADA996; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #D3CCE3; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 header {
